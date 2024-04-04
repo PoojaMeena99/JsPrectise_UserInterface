@@ -1,0 +1,119 @@
+const button = document.getElementById("myButton");
+button.addEventListener("click", function () {
+  alert("Button clicked!!!");
+  let input = document.getElementById("text").value;
+  console.log(input, "inputtt");
+  fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + input)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      const word = (document.getElementById("word").innerHTML = data[0].word);
+      for (let element of data) {
+        meaningsarray = element.meanings;
+        for (let meaning of meaningsarray) {
+          const display = (document.getElementById("displayData").innerHTML += `<h1>${meaning.partOfSpeech}</h1>`);
+          definitionpart = meaning.definitions;
+          for (let def of definitionpart) {
+            defindex = def;
+            const definitionDisplay = (document.getElementById("displayData").innerHTML += `<ul><li>${defindex.definition} </li></ul>`);
+          }
+        }
+      }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const button = document.getElementById("myButton");
+// button.addEventListener("click", function () {
+//   alert("Button clicked!!!");
+
+//   let input = document.getElementById("text").value;
+//   console.log(input, "inputtt");
+
+//   fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + input)
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .then((data) => {
+//       const Data = data;
+//       const newlist = [];
+//       for (let i of Data) {
+//         console.log(i,"ii")
+//         for (let j in i) {
+//           console.log(i[j])
+//           if (j === "meanings") {
+//             console.log(j, "jjj");
+//             }
+//           }
+//         }
+//       }
+//       console.log(newlist, "newslist");
+// for (let m of newlist) {
+//   for (let k of m) {
+//     console.log(k);
+//   }
+// }
+
+// const array = [
+//   { Name: 'Alice', Value: 5 },
+//   { Name: 'Bob', Value: 7 },
+//   { Name: 'Charlie', Value: 3 }
+// ];
+
+// let sum = 0;
+// array.forEach(obj
+
+// const myObject = {
+//   key1: "value1",
+//   key2: "value2",
+//   key3: "value3"
+// };
+
+// myObject.forEach(function(value, key) {
+//   console.log(key + ": " + value);
+// });
+
+//   if (dictData[key]=="meanings"){
+//     allKey.push(meanings)
+//   }else{
+//     console.log("its not accesst")
+//   }
+// }
+// console.log(allKey,"alllll")
+// for (let i in allMeaningsDefinition) {
+//   document.getElementById(
+//     "definitionDisplay"
+//   ).innerHTML += `<ul><li>${allMeaningsDefinition[i].definition} </li></ul>`;
+// }
+// for (let speech in allMeaningsPartOfSpeech) {
+//   document.getElementById(
+//     "displayspeech"
+//   ).innerHTML += `<ul><li>${allMeaningsPartOfSpeech[speech].partOfSpeech}</li></ul>`;
+// }
+//     });
+// });
+
+// console.log(data, "dataaa");
+// const word = (document.getElementById("word").innerHTML = data[0].word);
+// console.log(data[0].word);
+// const allMeaningsDefinition = data[0].meanings[0].definitions;
+// const allMeaningsPartOfSpeech = data[0].meanings;
+
+// const dict=(document.getElementById("data").innerHTML = data[0]);
+// console.log(dict,"dataaaa")

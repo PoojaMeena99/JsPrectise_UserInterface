@@ -14,6 +14,7 @@ function addProduct(id, name, price, quantity) {
   let product = new Product(id, name, price, quantity);
   inventory.push(product);
 }
+
 addProduct(0, "iphone", 60000, 8);
 addProduct(1, "bottel", 50, 4);
 addProduct(2, "table", 700, 10);
@@ -21,7 +22,6 @@ addProduct(3, "laptop", 35000, 8);
 addProduct(4, "tea", 100, 2);
 
 // console.log(inventory)
-
 // update array of quantity by id
 
 function update(index) {

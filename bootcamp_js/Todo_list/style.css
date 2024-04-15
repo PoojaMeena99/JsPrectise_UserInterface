@@ -1,0 +1,19 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.main_body{
+    width:100%;
+    min-height: 100vh;
+    background: linear-gradient(150deg,white,purple);
+}
+#task{
+    text-decoration: line-through;
+}
+ul li{
+    background-color: white;
+    width: 40px;
+    height: auto;
+    color: black;
+}
